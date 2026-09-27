@@ -1,0 +1,18 @@
+.nav { background: var(--n4n-orange); }
+.list { display: flex; list-style: none; margin: 0; padding: 0; overflow-x: auto; }
+.list a {
+  display: block;
+  color: #fff;
+  padding: 10px 16px;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+.list a:hover, .list a.active { background: var(--n4n-red); }
+@media (max-width: 860px) {
+  .nav { display: none; }
+  .nav.open { display: block; }
+  .list { flex-direction: column; }
+}

@@ -1,0 +1,4 @@
+.heroGrid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin: 20px 0; }
+.trendingList { background: #fff; border-radius: var(--n4n-radius); box-shadow: var(--n4n-shadow); padding: 14px; }
+.trendingHeading { font-size: 13px; font-weight: 800; text-transform: uppercase; color: var(--n4n-orange); margin: 0 0 8px; }
+@media (max-width: 860px) { .heroGrid { grid-template-columns: 1fr; } }
