@@ -1,0 +1,11 @@
+node_modules/
+dist/
+bin/
+obj/
+*.tsbuildinfo
+.env
+.env.local
+.env.production
+*.user
+*.log
+__pycache__/

@@ -1,0 +1,39 @@
+name: Build and test
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    services:
+      sqlserver:
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        env:
+          ACCEPT_EULA: Y
+          MSSQL_PID: Developer
+          MSSQL_SA_PASSWORD: CI-Disposable-Only-74!test
+        ports: ['1433:1433']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci && npm run build
+        working-directory: frontend
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - run: dotnet build backend/Narendra4News.API/Narendra4News.API.csproj -c Release
+      - run: az bicep build --file infra/main.bicep --outfile /tmp/n4nc.json
+      - run: npm install -g azurite@3.35.0
+      - name: SQL and private Blob integration test
+        env:
+          N4NC_TEST_SQL: 'Server=localhost,1433;Database=N4ncTest;User Id=sa;Password=CI-Disposable-Only-74!test;Encrypt=True;TrustServerCertificate=True;Connect Timeout=60'
+        run: python3 tests/integration.py

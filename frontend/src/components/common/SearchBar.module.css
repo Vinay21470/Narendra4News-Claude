@@ -1,0 +1,2 @@
+.wrap { padding: 10px 0; display: flex; gap: 8px; }
+.input { flex: 1; padding: 10px 14px; border: 1px solid var(--n4n-border); border-radius: var(--n4n-radius); font-size: 14px; }

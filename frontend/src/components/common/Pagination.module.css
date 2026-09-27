@@ -1,0 +1,4 @@
+.wrap { display: flex; justify-content: center; gap: 8px; margin: 28px 0; }
+.btn { border: 1px solid var(--n4n-border); background: #fff; padding: 8px 14px; border-radius: var(--n4n-radius); font-weight: 600; font-size: 13px; }
+.btn:disabled { opacity: 0.4; cursor: default; }
+.active { background: var(--n4n-orange); color: #fff; border-color: var(--n4n-orange); }

@@ -1,0 +1,102 @@
+:root {
+  --n4n-orange: #e64a19;
+  --n4n-red: #c62828;
+  --n4n-orange-light: #ff7043;
+  --n4n-bg: #ffffff;
+  --n4n-bg-alt: #f7f7f8;
+  --n4n-text: #1a1a1a;
+  --n4n-text-muted: #666666;
+  --n4n-border: #e5e5e5;
+  --n4n-font: 'Segoe UI', Roboto, 'Noto Sans Telugu', Arial, sans-serif;
+  --n4n-radius: 6px;
+  --n4n-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--n4n-font);
+  color: var(--n4n-text);
+  background: var(--n4n-bg-alt);
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.n4n-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.n4n-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+@media (max-width: 992px) {
+  .n4n-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .n4n-grid-3, .n4n-grid-2 { grid-template-columns: 1fr; }
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-left: 5px solid var(--n4n-orange);
+  padding-left: 10px;
+  margin: 28px 0 16px;
+  letter-spacing: 0.3px;
+}
+
+.btn-primary {
+  background: var(--n4n-orange);
+  color: #fff;
+  border: none;
+  border-radius: var(--n4n-radius);
+  padding: 10px 18px;
+  font-weight: 600;
+}
+.btn-primary:hover { background: var(--n4n-red); }
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--n4n-border);
+  border-radius: var(--n4n-radius);
+  padding: 9px 16px;
+  font-weight: 600;
+  color: var(--n4n-text);
+}
+
+.card {
+  background: var(--n4n-bg);
+  border-radius: var(--n4n-radius);
+  box-shadow: var(--n4n-shadow);
+  overflow: hidden;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--n4n-orange);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.4px;
+}
+
+.loading-state, .error-state, .empty-state {
+  text-align: center;
+  padding: 40px 16px;
+  color: var(--n4n-text-muted);
+}
+.error-state { color: var(--n4n-red); }

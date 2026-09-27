@@ -1,0 +1,6 @@
+.bar { background: #1a1a1a; color: #fff; }
+.inner { display: flex; align-items: center; gap: 14px; padding: 8px 0; overflow: hidden; }
+.label { background: var(--n4n-red); padding: 4px 10px; font-size: 12px; font-weight: 800; text-transform: uppercase; border-radius: 3px; flex-shrink: 0; }
+.scroller { display: flex; gap: 28px; overflow-x: auto; white-space: nowrap; }
+.item { font-size: 13px; color: #eee; }
+.item:hover { color: var(--n4n-orange-light); }
